@@ -1,34 +1,21 @@
-name: 🚀 CI/CD Pipeline
+name: 📦 Simple CI
 
+# Run on every push to main branch
 on:
   push:
     branches:
-      - main   # 🟢 Run this workflow only when code is pushed to "main"
+      - main
 
 jobs:
-  build:
-    runs-on: ubuntu-latest   # 🖥️ Use Ubuntu machine
+  hello-job:
+    runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Checkout Code
+      # Step 1: Checkout code
+      - name: 📥 Checkout repository
         uses: actions/checkout@v3
-        # ✅ Pulls your repo code into the runner
 
-      - name: 🏗️ Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-        # 🟡 Prepares Node.js environment
-
-      - name: 📦 Install Dependencies
-        run: npm install
-        # 📌 Install all project packages
-
-      - name: ✅ Run Tests
-        run: npm test
-        # 🧪 Make sure everything is working fine
-
-      - name: 🚢 Deploy (Simulated)
-        run: echo "🎉 Deployment successful!"
-        # 🔵 Normally, you’d add deployment steps here
+      # Step 2: Print a message
+      - name: 💬 Say Hello
+        run: echo "Hello, GitHub Actions! Your push worked successfully 🎉"
 
